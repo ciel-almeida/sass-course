@@ -1,0 +1,41 @@
+@import "variables";
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+}
+
+.box {
+	$base-width: 20rem;
+	width: $base-width;
+	height: 8rem;
+
+	// Shadowing - Re-declaração de uma variável em um escopo local.
+	$box-color--one: rgb(138, 227, 122);
+
+	&-one {
+		background-color: $box-color--one;
+	}
+
+	&-two {
+		background-color: $box-color--two;
+		// Interpolação com variável e valor fixo
+		width: #{$base-width + 10rem};
+	}
+
+	&-three {
+		background-color: $box-color--three;
+	}
+}
