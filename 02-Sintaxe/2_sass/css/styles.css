@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/*Comentário apareceno CSS */
+/*! Aparece no CSS e no CSS minificado */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  background-color: #46b561;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+.container #title {
+  text-align: center;
+  color: #000;
+}
+
+/*# sourceMappingURL=styles.css.map */

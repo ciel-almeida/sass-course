@@ -1,0 +1,23 @@
+.container {
+  background-color: rgb(148, 69, 69);
+  padding: 20px;
+}
+.container #title {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.container-bottom {
+  background-color: rgb(59, 128, 90);
+  padding: 20px;
+}
+.container-bottom h2 {
+  text-align: center;
+  background-color: #333;
+  padding: 10px;
+  color: rgb(247, 247, 247);
+}
+
+/*# sourceMappingURL=styles.css.map */
