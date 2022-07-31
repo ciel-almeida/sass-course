@@ -1,0 +1,62 @@
+@function text-color($size) {
+	$color: #000;
+	@if $size > 10 {
+		$color: violet;
+	} @else {
+		$color: pink;
+	}
+
+	@debug $color;
+
+	@return $color;
+}
+
+@function font-size-list($size: 10) {
+	$font-size: 0rem;
+
+	@if $size >= 20 {
+		$font-size: 4rem;
+	} @else if $size <= 10 {
+		$font-size: 2rem;
+	} @else {
+		$font-size: 6rem;
+	}
+
+	@return $font-size;
+}
+
+@function margin-function($m-top: 1rem, $m-left: 2rem, $m-bottom: 1rem, $m-right: 3rem) {
+	@return $m-top $m-left $m-bottom $m-right;
+}
+
+@function calc-width($size) {
+	@if $size >= 100px {
+		@return $size;
+	} @else if $size <= 50px {
+		@warn 'Esse é uma aviso, o software não irá parar.';
+		@return 50px;
+	} @else {
+		@error 'Insira um valor entre 100 e 200';
+	}
+}
+
+// List of font-sizes
+$fonts: 40px, 80px, 120px;
+
+// Each loop creating the classes dinamically
+@each $font-size in $fonts {
+	.title-#{$font-size} {
+		font-size: $font-size;
+	}
+}
+
+// For loop
+@for $i from 1 through 3 {
+	.parag-#{$i} {
+		@if $i == 2 {
+			color: red;
+		}
+		font-size: 3rem;
+		text-align: center;
+	}
+}
