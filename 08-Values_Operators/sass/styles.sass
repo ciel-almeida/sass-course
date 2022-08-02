@@ -1,0 +1,39 @@
+@use 'sass:map'
+
+// Tests with numbers
+$first-value: 10px
+$second-value: 20px
+
+@debug $first-value + $second-value
+
+// Tests with strings
+$string1: 'This is a string'
+$string2: Another string
+
+@debug $string1 + ' ' + $string2
+@debug '#{$string1} #{$string2}'
+
+// Testing colors
+@debug red
+@debug #53bb17d3
+@debug rgba(18, 103, 50, 0.7)
+@debug rgb(238, 238, 238)
+
+
+// Testing lists
+$list: 10px, 20px, 30px, 40px
+
+@each $value in $list
+    .paragraph--#{$value}
+        font-size: $value
+
+
+// Testing maps
+$font-weights-map: ("regular": 400, "bold": 700, "black": 900)
+
+h3
+    font-weight: map.get($font-weights-map, 'bold')
+
+@each $key, $value in $font-weights-map
+    .p-#{$key}
+        font-weight: #{$value}
