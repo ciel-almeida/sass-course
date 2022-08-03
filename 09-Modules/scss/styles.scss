@@ -1,0 +1,98 @@
+@use "sass:color";
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+@use "sass:string";
+
+$color-primary: red;
+$color-secondary: blue;
+
+// Module color
+.color {
+	display: block;
+	text-align: center;
+	padding: 1.5rem 0;
+
+	&--1 {
+		background-color: color.adjust($color-primary, $blue: 200, $green: 150);
+	}
+	&--2 {
+		background-color: color.scale($color-secondary, $lightness: 60%);
+	}
+	&--3 {
+		background-color: color.scale(rgb(2, 156, 35), $lightness: -20%);
+	}
+	&--4 {
+		background-color: color.invert($color: #0c41ff);
+	}
+	&--5 {
+		background-color: color.complement(red);
+	}
+	&--6 {
+		background-color: color.mix(rgb(191, 0, 255), rgb(99, 172, 236));
+	}
+	&--7 {
+		background-color: desaturate(red, 80%);
+	}
+	&--8 {
+		background-color: lighten(red, 20%);
+	}
+	&--9 {
+		background-color: darken(red, 20%);
+	}
+}
+
+// Module List
+$list1: 10px, 20px, 30px;
+$list2: 40px, 50px, 60px;
+
+@debug list.append($list1, 40px);
+@debug list.append($list1, $list2); // Appended as a string (40px, 50px, 60px)
+@debug list.index($list1, 20px); // 2
+$list3: list.join($list1, $list2);
+@debug $list3;
+@debug list.length($list3); // 6, lists in SASS starts in 1
+@debug list.nth($list3, 5);
+
+// Module map
+$map1: (
+	"value1": 20px,
+	"value2": 40px,
+);
+
+$map2: (
+	"size1": 2rem,
+	"size2": 4rem,
+);
+
+$map3: map.merge($map1, $map2);
+@debug $map3;
+
+@debug map.has-key($map3, "size1");
+@debug map.get($map3, "value1");
+
+// Module math
+$math-list: 10, 20, 30;
+@debug math.$pi;
+@debug math.ceil(3.546); // 4
+@debug math.floor(3.456); // 3
+@debug math.min(10, 20, 30); // Doesn't work with lists and css values (px, rem).
+@debug math.max($math-list...); // With the spread the function works with lists.
+@debug math.random(); // Random number between 0 and 1.
+
+// Module meta
+@debug meta.global-variable-exists(
+	"var1"
+); // Intended for debug, variable has to be passed as a string
+@debug meta.inspect($list1);
+@debug meta.mixin-exists("test");
+@debug meta.type-of($list1);
+
+// Module string
+@debug string.to-upper-case("this is a sentence in lowercase");
+@debug string.to-lower-case("THIS IS A SENTENCE IN UPPERCASE");
+@debug string.length("A new sentence.");
+$frase: "O rato roeu o roupa do rei de roma.";
+@debug string.index($frase, "rei");
+@debug string.unique-id(); // creates a random id
